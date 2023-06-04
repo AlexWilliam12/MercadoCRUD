@@ -3,12 +3,16 @@ DROP DATABASE mercadoDB;
 CREATE DATABASE mercadoDB;
 USE mercadoDB;
 
+CREATE TABLE Administrador(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    usuario TEXT NOT NULL,
+    senha varchar(21) NOT NULL
+);
+
 CREATE TABLE Funcionario(
 	cpf VARCHAR(11),
     rg VARCHAR(9),
     nome TEXT NOT NULL,
-    email varchar(60) UNIQUE NOT NULL,
-    senha varchar(21) NOT NULL,
     PRIMARY KEY (cpf, rg)
 );
 
@@ -38,22 +42,21 @@ CREATE TABLE Cep(
 );
 
 CREATE TABLE Produto(
-	id INT PRIMARY KEY,
+	id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(20) UNIQUE NOT NULL,
     descricao TEXT,
     preco DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE Estoque(
-	id INT NOT NULL,
+	id INT PRIMARY KEY AUTO_INCREMENT,
     quantidade INT NOT NULL,
     FOREIGN KEY (id) REFERENCES Produto(id)
 );
 
-SELECT * FROM Produto;
-SELECT * FROM Estoque;
-
-SELECT * FROM Funcionario;
-SELECT * FROM Fornecedor;
-SELECT * FROM Endereco;
-SELECT * FROM Cep;
+INSERT INTO Fornecedor VALUES ('03781835000114', '879907539514', 'Empresa Nobre');
+INSERT INTO Endereco VALUES ('69911015', 'Beco da Solidão', 'Volta Seca', '', 'Rio Branco', 'AC', 'Brasil', 68);
+INSERT INTO Cep VALUES ('03781835000114', '69911015');
+INSERT INTO Administrador(usuario, senha) VALUES ('root', 'root');
+INSERT INTO Produto(nome, descricao, preco) VALUES ('Banana', 'Fruta', 4.55);
+INSERT INTO Estoque(quantidade) VALUES (10);
