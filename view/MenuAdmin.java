@@ -53,7 +53,7 @@ public class MenuAdmin extends JFrame {
         jLabel4 = new JLabel();
         jButton1 = new JButton();
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setTitle("Tela de cadastro administrador");
         setResizable(false);
 

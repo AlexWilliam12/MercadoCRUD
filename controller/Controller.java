@@ -115,6 +115,7 @@ public class Controller {
 						if (service.inserir(admin)) {
 							JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
 							context.getCadAdmin().setVisible(false);
+							context.getLogin().setVisible(true);
 						}
 					}
 				}
